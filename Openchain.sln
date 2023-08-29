@@ -43,6 +43,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.EntityFrameworkCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.EntityFrameworkCore.Tests", "test\Openchain.EntityFrameworkCore.Tests\Openchain.EntityFrameworkCore.Tests.csproj", "{FAA1B4A0-44E0-4227-863C-66096F2A7B97}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.SDK", "src\Openchain.SDK\Openchain.SDK.csproj", "{F9A89FA1-3BCE-4A5A-A3E6-67707666C22C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A89FA1-3BCE-4A5A-A3E6-67707666C22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A89FA1-3BCE-4A5A-A3E6-67707666C22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A89FA1-3BCE-4A5A-A3E6-67707666C22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A89FA1-3BCE-4A5A-A3E6-67707666C22C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{47B6C6EC-9627-45ED-9F27-8FCA7D572AFB} = {62976C02-9AC7-450D-8634-FB01F357F47B}
 		{F51B837A-7B7C-421C-B64F-77BA36ACD995} = {69F65B5A-AA9C-4D9B-8F70-0D0D33052D87}
 		{FAA1B4A0-44E0-4227-863C-66096F2A7B97} = {62976C02-9AC7-450D-8634-FB01F357F47B}
+		{F9A89FA1-3BCE-4A5A-A3E6-67707666C22C} = {69F65B5A-AA9C-4D9B-8F70-0D0D33052D87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C789C29-8A4E-4401-BD4C-19C58303E8B6}

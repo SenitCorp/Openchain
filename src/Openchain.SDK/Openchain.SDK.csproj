@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NBitcoin" Version="3.0.2.26" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Openchain.Infrastructure\Openchain.Infrastructure.csproj" />
+    <ProjectReference Include="..\Openchain.Validation.PermissionBased\Openchain.Validation.PermissionBased.csproj" />
+  </ItemGroup>
+
+</Project>
