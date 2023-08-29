@@ -15,8 +15,9 @@
 using System;
 using System.Linq;
 using System.Text;
+using Xunit;
 using Assert = Xunit.Assert;
-using Fact = Xunit.FactAttribute;
+//using Fact = Xunit.FactAttribute;
 
 namespace Openchain.Infrastructure.Tests
 {
@@ -33,8 +34,8 @@ namespace Openchain.Infrastructure.Tests
                 SerializeInt(100),
                 binaryData[3]));
 
-            Assert.Equal(1, result.AccountMutations.Count);
-            Assert.Equal(0, result.DataRecords.Count);
+            Assert.Single(result.AccountMutations);
+            Assert.Empty(result.DataRecords);
             Assert.Equal("/the/account/", result.AccountMutations[0].AccountKey.Account.FullPath);
             Assert.Equal("/the/asset/", result.AccountMutations[0].AccountKey.Asset.FullPath);
             Assert.Equal(100, result.AccountMutations[0].Balance);
@@ -49,8 +50,8 @@ namespace Openchain.Infrastructure.Tests
                 ByteString.Parse("aabbccdd"),
                 binaryData[3]));
 
-            Assert.Equal(0, result.AccountMutations.Count);
-            Assert.Equal(1, result.DataRecords.Count);
+            Assert.Empty(result.AccountMutations);
+            Assert.Single(result.DataRecords);
             Assert.Equal("/aka/alias/", result.DataRecords[0].Key.Path.FullPath);
             Assert.Equal(RecordType.Data, result.DataRecords[0].Key.RecordType);
             Assert.Equal("name", result.DataRecords[0].Key.Name);
@@ -65,8 +66,8 @@ namespace Openchain.Infrastructure.Tests
                 null,
                 binaryData[3]));
 
-            Assert.Equal(0, result.AccountMutations.Count);
-            Assert.Equal(0, result.DataRecords.Count);
+            Assert.Empty(result.AccountMutations);
+            Assert.Empty(result.DataRecords);
         }
 
         [Fact]

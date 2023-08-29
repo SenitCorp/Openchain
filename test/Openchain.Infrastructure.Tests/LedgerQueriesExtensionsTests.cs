@@ -38,7 +38,7 @@ namespace Openchain.Infrastructure.Tests
 
             IReadOnlyList<AccountStatus> result = await this.store.GetAccount("/path/to/account/");
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("/path/to/account/:ACC:/asset/", result[0].AccountKey.Key.ToString());
             Assert.Equal(1, result[0].Balance);
             Assert.Equal(ByteString.Parse("1234"), result[0].Version);

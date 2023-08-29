@@ -40,13 +40,13 @@ namespace Openchain.Tests
             IReadOnlyList<Record> records3 = await this.Store.GetRecords(new[] { binaryData[4] });
             IReadOnlyList<Record> records4 = await this.Store.GetRecords(new[] { binaryData[6] });
 
-            Assert.Equal(1, records1.Count);
+            Assert.Single(records1);
             AssertRecord(records1[0], binaryData[0], binaryData[1], mutationHash);
-            Assert.Equal(1, records2.Count);
+            Assert.Single(records2);
             AssertRecord(records2[0], binaryData[2], ByteString.Empty, ByteString.Empty);
-            Assert.Equal(1, records3.Count);
+            Assert.Single(records3);
             AssertRecord(records3[0], binaryData[4], ByteString.Empty, mutationHash);
-            Assert.Equal(1, records4.Count);
+            Assert.Single(records4);
             AssertRecord(records4[0], binaryData[6], ByteString.Empty, ByteString.Empty);
         }
 
@@ -66,9 +66,9 @@ namespace Openchain.Tests
             IReadOnlyList<Record> records1 = await this.Store.GetRecords(new[] { binaryData[0] });
             IReadOnlyList<Record> records2 = await this.Store.GetRecords(new[] { binaryData[3] });
 
-            Assert.Equal(1, records1.Count);
+            Assert.Single(records1);
             AssertRecord(records1[0], binaryData[0], binaryData[2], mutationHash3);
-            Assert.Equal(1, records2.Count);
+            Assert.Single(records2);
             AssertRecord(records2[0], binaryData[3], binaryData[4], mutationHash2);
         }
 
@@ -90,10 +90,10 @@ namespace Openchain.Tests
             IReadOnlyList<Record> records1 = await this.Store.GetRecords(new[] { binaryData[0] });
             IReadOnlyList<Record> records2 = await this.Store.GetRecords(new[] { binaryData[3] });
 
-            Assert.Equal(1, records1.Count);
+            Assert.Single(records1);
             AssertRecord(records1[0], binaryData[0], binaryData[1], mutationHash);
             AssertRecord(exception1.FailedMutation, binaryData[0], binaryData[2], ByteString.Empty);
-            Assert.Equal(1, records2.Count);
+            Assert.Single(records2);
             AssertRecord(records2[0], binaryData[3], binaryData[4], mutationHash);
             AssertRecord(exception2.FailedMutation, binaryData[3], null, ByteString.Empty);
         }
@@ -126,16 +126,16 @@ namespace Openchain.Tests
             IReadOnlyList<Record> records3 = await this.Store.GetRecords(new[] { binaryData[8] });
             IReadOnlyList<Record> records4 = await this.Store.GetRecords(new[] { binaryData[12] });
 
-            Assert.Equal(1, records1.Count);
+            Assert.Single(records1);
             AssertRecord(records1[0], binaryData[0], binaryData[1], mutationHash);
             AssertRecord(exception1.FailedMutation, binaryData[0], binaryData[2], binaryData[3]);
-            Assert.Equal(1, records2.Count);
+            Assert.Single(records2);
             AssertRecord(records2[0], binaryData[4], binaryData[5], mutationHash);
             AssertRecord(exception2.FailedMutation, binaryData[4], null, binaryData[6]);
-            Assert.Equal(1, records3.Count);
+            Assert.Single(records3);
             AssertRecord(records3[0], binaryData[8], ByteString.Empty, ByteString.Empty);
             AssertRecord(exception3.FailedMutation, binaryData[8], binaryData[9], binaryData[10]);
-            Assert.Equal(1, records4.Count);
+            Assert.Single(records4);
             AssertRecord(records4[0], binaryData[12], ByteString.Empty, ByteString.Empty);
             AssertRecord(exception4.FailedMutation, binaryData[12], null, binaryData[14]);
         }
@@ -233,7 +233,7 @@ namespace Openchain.Tests
         {
             IReadOnlyList<Record> records = await this.Store.GetRecords(new ByteString[0]);
 
-            Assert.Equal(0, records.Count);
+            Assert.Empty(records);
         }
 
         [Fact]
@@ -277,7 +277,7 @@ namespace Openchain.Tests
 
             IReadOnlyList<ByteString> transactions = await this.Store.GetTransactions(resumeToken);
 
-            Assert.Equal(1, transactions.Count);
+            Assert.Single(transactions);
             Assert.Equal(mutation2, GetMutationHash(transactions[0]));
         }
 

@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyModel;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Openchain.Infrastructure;
 
@@ -57,7 +58,7 @@ namespace Openchain.Server.Models
         public static async Task<Func<IServiceProvider, T>> Create(IServiceProvider serviceProvider, string configurationPath)
         {
             IConfiguration configuration = serviceProvider.GetRequiredService<IConfiguration>();
-            IHostingEnvironment application = serviceProvider.GetRequiredService<IHostingEnvironment>();
+            IHostEnvironment application = serviceProvider.GetRequiredService<IHostEnvironment>();
             IConfigurationSection rootSection = configuration.GetSection(configurationPath);
 
             try

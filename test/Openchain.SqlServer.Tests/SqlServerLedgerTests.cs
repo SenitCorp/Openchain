@@ -13,7 +13,7 @@
 // limitations under the License.
 
 using System;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Openchain.Infrastructure.Tests;
 using Xunit;
 

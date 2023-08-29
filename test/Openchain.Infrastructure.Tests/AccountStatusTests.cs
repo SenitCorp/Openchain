@@ -14,8 +14,9 @@
 
 using System;
 using System.Linq;
+using Xunit;
 using Assert = Xunit.Assert;
-using Fact = Xunit.FactAttribute;
+//using Fact = Xunit.FactAttribute;
 
 namespace Openchain.Infrastructure.Tests
 {

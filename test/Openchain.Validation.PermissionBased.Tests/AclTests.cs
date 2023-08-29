@@ -54,12 +54,12 @@ namespace Openchain.Validation.PermissionBased.Tests
         {
             IReadOnlyList<Acl> result = Acl.Parse(GetValidAcl(), LedgerPath.Parse("/root/path/"), new KeyEncoder(111));
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("/root/path/", result[0].Path.FullPath);
             Assert.Equal("name", result[0].RecordName.Pattern);
             Assert.Equal(PatternMatchingStrategy.Exact, result[0].RecordName.MatchingStrategy);
-            Assert.Equal(true, result[0].Recursive);
-            Assert.Equal(1, result[0].Subjects.Count);
+            Assert.True(result[0].Recursive);
+            Assert.Single(result[0].Subjects);
             Assert.Equal(Access.Permit, result[0].Permissions.AccountModify);
             Assert.Equal(Access.Permit, result[0].Permissions.AccountSpend);
             Assert.Equal(Access.Permit, result[0].Permissions.AccountModify);
@@ -73,11 +73,11 @@ namespace Openchain.Validation.PermissionBased.Tests
             const string acl = @"[{ ""subjects"": [ ], ""permissions"": { } }]";
             IReadOnlyList<Acl> result = Acl.Parse(acl, LedgerPath.Parse("/root/path/"), new KeyEncoder(111));
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("", result[0].RecordName.Pattern);
             Assert.Equal(PatternMatchingStrategy.Prefix, result[0].RecordName.MatchingStrategy);
-            Assert.Equal(true, result[0].Recursive);
-            Assert.Equal(0, result[0].Subjects.Count);
+            Assert.True(result[0].Recursive);
+            Assert.Empty(result[0].Subjects);
             Assert.Equal(Access.Unset, result[0].Permissions.AccountModify);
             Assert.Equal(Access.Unset, result[0].Permissions.AccountSpend);
             Assert.Equal(Access.Unset, result[0].Permissions.AccountModify);

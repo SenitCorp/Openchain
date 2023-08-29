@@ -17,11 +17,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Primitives;
 using Xunit;
 
@@ -69,7 +69,7 @@ namespace Openchain.Sqlite.Tests
         [Fact]
         public void GetPathOrDefault_Success()
         {
-            IServiceProvider services = new ServiceCollection().AddSingleton<IHostingEnvironment>(new TestHostingEnvironment()).BuildServiceProvider();
+            IServiceProvider services = new ServiceCollection().AddSingleton<IHostEnvironment>(new TestHostingEnvironment()).BuildServiceProvider();
 
             string result = SqliteStorageEngineBuilder.GetPathOrDefault(services, "data.db");
 
@@ -78,7 +78,7 @@ namespace Openchain.Sqlite.Tests
 
         #region Test classes
 
-        private class TestHostingEnvironment : IHostingEnvironment
+        private class TestHostingEnvironment : IHostEnvironment
         {
             public string ApplicationName { get; set; } = "";
 

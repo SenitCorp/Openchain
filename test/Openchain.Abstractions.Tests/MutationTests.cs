@@ -40,7 +40,7 @@ namespace Openchain.Tests
             Assert.Equal(binaryData[2], mutation.Records[0].Value);
             Assert.Equal(binaryData[3], mutation.Records[0].Version);
             Assert.Equal(binaryData[4], mutation.Records[1].Key);
-            Assert.Equal(null, mutation.Records[1].Value);
+            Assert.Null(mutation.Records[1].Value);
             Assert.Equal(binaryData[5], mutation.Records[1].Version);
             Assert.Equal(binaryData[0], mutation.Namespace);
             Assert.Equal(binaryData[6], mutation.Metadata);

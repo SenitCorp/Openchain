@@ -24,15 +24,15 @@ namespace Openchain.Validation.PermissionBased.Tests
             KeyEncoder keyEncoder = new KeyEncoder(111);
 
             // Valid
-            Assert.Equal(true, keyEncoder.IsP2pkh("mfiCwNxuFYMtb5ytCacgzDAineD2GNCnYo"));
+            Assert.True(keyEncoder.IsP2pkh("mfiCwNxuFYMtb5ytCacgzDAineD2GNCnYo"));
             // Wrong checksum
-            Assert.Equal(false, keyEncoder.IsP2pkh("mfiCwNxuFYMtb5ytCacgzDAineD2GNCnYp"));
+            Assert.False(keyEncoder.IsP2pkh("mfiCwNxuFYMtb5ytCacgzDAineD2GNCnYp"));
             // Invalid size
-            Assert.Equal(false, keyEncoder.IsP2pkh("2Qx7aDxjSh772"));
+            Assert.False(keyEncoder.IsP2pkh("2Qx7aDxjSh772"));
             // Empty
-            Assert.Equal(false, keyEncoder.IsP2pkh(""));
+            Assert.False(keyEncoder.IsP2pkh(""));
             // Invalid version byte
-            Assert.Equal(false, keyEncoder.IsP2pkh("1CCW1yPxC8meB7JzF8xEwaad4DxksFqhrQ"));
+            Assert.False(keyEncoder.IsP2pkh("1CCW1yPxC8meB7JzF8xEwaad4DxksFqhrQ"));
         }
 
         [Fact]

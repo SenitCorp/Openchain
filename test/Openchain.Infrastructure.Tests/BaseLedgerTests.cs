@@ -39,7 +39,7 @@ namespace Openchain.Infrastructure.Tests
 
             IReadOnlyList<Record> result = await Engine.GetRecords(new[] { new ByteString(Encoding.UTF8.GetBytes("/:DATA:/name")) });
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("/:DATA:/name", Encoding.UTF8.GetString(result[0].Key.ToByteArray()));
             Assert.Equal(ByteString.Empty, result[0].Value);
         }
@@ -56,8 +56,8 @@ namespace Openchain.Infrastructure.Tests
             IReadOnlyList<Record> result = await Queries.GetKeyStartingFrom(new ByteString(Encoding.UTF8.GetBytes("/:DATA:/")));
 
             Assert.Equal(2, result.Count);
-            Assert.True(result.Any(record => Encoding.UTF8.GetString(record.Key.ToByteArray()) == "/:DATA:/e"));
-            Assert.True(result.Any(record => Encoding.UTF8.GetString(record.Key.ToByteArray()) == "/:DATA:/"));
+            Assert.Contains(result, record => Encoding.UTF8.GetString(record.Key.ToByteArray()) == "/:DATA:/e");
+            Assert.Contains(result, record => Encoding.UTF8.GetString(record.Key.ToByteArray()) == "/:DATA:/");
         }
 
         [Fact]
@@ -67,7 +67,7 @@ namespace Openchain.Infrastructure.Tests
 
             IReadOnlyList<Record> result = await Queries.GetKeyStartingFrom(new ByteString(Encoding.UTF8.GetBytes("/:DATA:n")));
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("/:DATA:name", Encoding.UTF8.GetString(result[0].Key.ToByteArray()));
             Assert.Equal(binaryData[0], result[0].Value);
         }
@@ -119,12 +119,12 @@ namespace Openchain.Infrastructure.Tests
             IReadOnlyList<Record> result2 = await Indexes.GetAllRecords(RecordType.Data, "name3");
             IReadOnlyList<Record> result3 = await Indexes.GetAllRecords(RecordType.Account, "/path/1/");
 
-            Assert.Equal(1, result1.Count);
+            Assert.Single(result1);
             Assert.Equal("/e/", RecordKey.Parse(result1[0].Key).Path.FullPath);
             Assert.Equal(2, result2.Count);
             Assert.Equal("/c/", RecordKey.Parse(result2[0].Key).Path.FullPath);
             Assert.Equal("/d/", RecordKey.Parse(result2[1].Key).Path.FullPath);
-            Assert.Equal(1, result3.Count);
+            Assert.Single(result3);
             Assert.Equal("/f/", RecordKey.Parse(result3[0].Key).Path.FullPath);
         }
 
@@ -135,7 +135,7 @@ namespace Openchain.Infrastructure.Tests
 
             IReadOnlyList<Record> result = await Indexes.GetAllRecords(RecordType.Data, "name");
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("/:DATA:name", Encoding.UTF8.GetString(result[0].Key.ToByteArray()));
             Assert.Equal(binaryData[0], result[0].Value);
         }

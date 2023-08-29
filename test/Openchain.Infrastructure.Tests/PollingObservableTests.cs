@@ -68,7 +68,7 @@ namespace Openchain.Infrastructure.Tests
             await observer.Disposed.Task;
 
             Assert.True(observer.Fail);
-            Assert.Equal(0, observer.Values.Count);
+            Assert.Empty(observer.Values);
         }
 
         private class TestObserver : IObserver<ByteString>

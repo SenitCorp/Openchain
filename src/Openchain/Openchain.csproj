@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Openchain.Anchoring.Blockchain\Openchain.Anchoring.Blockchain.csproj" />
+    <ProjectReference Include="..\Openchain.Server\Openchain.Server.csproj" />
+    <ProjectReference Include="..\Openchain.Sqlite\Openchain.Sqlite.csproj" />
+    <ProjectReference Include="..\Openchain.SqlServer\Openchain.SqlServer.csproj" />
+    <ProjectReference Include="..\Openchain.Validation.PermissionBased\Openchain.Validation.PermissionBased.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="data\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

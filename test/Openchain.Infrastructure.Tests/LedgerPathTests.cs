@@ -26,28 +26,28 @@ namespace Openchain.Infrastructure.Tests
             LedgerPath path;
             bool result = LedgerPath.TryParse("/abc/def/", out path);
 
-            Assert.Equal(true, result);
+            Assert.True(result);
             Assert.Equal("/abc/def/", path.FullPath);
             Assert.Equal<string>(new[] { "abc", "def" }, path.Segments);
 
             // All characters
             result = LedgerPath.TryParse("/azAZ0189$-_.+!*'(),/", out path);
 
-            Assert.Equal(true, result);
+            Assert.True(result);
             Assert.Equal("/azAZ0189$-_.+!*'(),/", path.FullPath);
             Assert.Equal<string>(new[] { "azAZ0189$-_.+!*'()," }, path.Segments);
 
             // Directory
             result = LedgerPath.TryParse("/abc/def/", out path);
 
-            Assert.Equal(true, result);
+            Assert.True(result);
             Assert.Equal("/abc/def/", path.FullPath);
             Assert.Equal<string>(new[] { "abc", "def" }, path.Segments);
 
             // Root
             result = LedgerPath.TryParse("/", out path);
 
-            Assert.Equal(true, result);
+            Assert.True(result);
             Assert.Equal("/", path.FullPath);
             Assert.Equal<string>(new string[] { }, path.Segments);
         }
@@ -72,8 +72,8 @@ namespace Openchain.Infrastructure.Tests
             LedgerPath path;
             bool result = LedgerPath.TryParse(value, out path);
 
-            Assert.Equal(false, result);
-            Assert.Equal(null, path);
+            Assert.False(result);
+            Assert.Null(path);
         }
 
         [Fact]
@@ -86,9 +86,9 @@ namespace Openchain.Infrastructure.Tests
                 LedgerPath path;
                 bool result = LedgerPath.TryParse("/" + c + "/", out path);
 
-                Assert.Equal(null, path);
-                Assert.Equal(false, result);
-                Assert.Equal(false, LedgerPath.IsValidPathSegment(c.ToString()));
+                Assert.Null(path);
+                Assert.False(result);
+                Assert.False(LedgerPath.IsValidPathSegment(c.ToString()));
             }
         }
 

@@ -46,7 +46,7 @@ namespace Openchain.Infrastructure.Tests
             LedgerAnchor anchor = await this.anchorBuilder.RecordAnchor();
 
             Assert.Null(anchor);
-            Assert.Equal(0, recorder.Anchors.Count);
+            Assert.Empty(recorder.Anchors);
             Assert.Null(state.LastAnchor);
         }
 
@@ -59,7 +59,7 @@ namespace Openchain.Infrastructure.Tests
             LedgerAnchor anchor = await this.anchorBuilder.RecordAnchor();
 
             AssertAnchor(anchor, 1, hash, expectedCumulativeHash);
-            Assert.Equal(1, recorder.Anchors.Count);
+            Assert.Single(recorder.Anchors);
             AssertAnchor(recorder.Anchors[0], 1, hash, expectedCumulativeHash);
             AssertAnchor(state.LastAnchor, 1, hash, expectedCumulativeHash);
         }
@@ -74,7 +74,7 @@ namespace Openchain.Infrastructure.Tests
             LedgerAnchor anchor = await this.anchorBuilder.RecordAnchor();
 
             AssertAnchor(anchor, 2, hash2, expectedCumulativeHash);
-            Assert.Equal(1, recorder.Anchors.Count);
+            Assert.Single(recorder.Anchors);
             AssertAnchor(recorder.Anchors[0], 2, hash2, expectedCumulativeHash);
             AssertAnchor(state.LastAnchor, 2, hash2, expectedCumulativeHash);
         }
@@ -89,7 +89,7 @@ namespace Openchain.Infrastructure.Tests
             LedgerAnchor anchor = await this.anchorBuilder.RecordAnchor();
 
             AssertAnchor(anchor, 2, hash, expectedCumulativeHash);
-            Assert.Equal(1, recorder.Anchors.Count);
+            Assert.Single(recorder.Anchors);
             AssertAnchor(recorder.Anchors[0], 2, hash, expectedCumulativeHash);
             AssertAnchor(state.LastAnchor, 2, hash, expectedCumulativeHash);
         }
@@ -101,7 +101,7 @@ namespace Openchain.Infrastructure.Tests
             LedgerAnchor anchor = await this.anchorBuilder.RecordAnchor();
 
             Assert.Null(anchor);
-            Assert.Equal(0, recorder.Anchors.Count);
+            Assert.Empty(recorder.Anchors);
             Assert.Null(state.LastAnchor);
         }
 
