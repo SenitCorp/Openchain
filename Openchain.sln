@@ -39,6 +39,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.Sqlite.Tests", "t
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.SqlServer.Tests", "test\Openchain.SqlServer.Tests\Openchain.SqlServer.Tests.csproj", "{47B6C6EC-9627-45ED-9F27-8FCA7D572AFB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.EntityFrameworkCore", "src\Openchain.EntityFrameworkCore\Openchain.EntityFrameworkCore.csproj", "{F51B837A-7B7C-421C-B64F-77BA36ACD995}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openchain.EntityFrameworkCore.Tests", "test\Openchain.EntityFrameworkCore.Tests\Openchain.EntityFrameworkCore.Tests.csproj", "{FAA1B4A0-44E0-4227-863C-66096F2A7B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +107,14 @@ Global
 		{47B6C6EC-9627-45ED-9F27-8FCA7D572AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47B6C6EC-9627-45ED-9F27-8FCA7D572AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47B6C6EC-9627-45ED-9F27-8FCA7D572AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51B837A-7B7C-421C-B64F-77BA36ACD995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51B837A-7B7C-421C-B64F-77BA36ACD995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51B837A-7B7C-421C-B64F-77BA36ACD995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51B837A-7B7C-421C-B64F-77BA36ACD995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA1B4A0-44E0-4227-863C-66096F2A7B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +134,8 @@ Global
 		{4B8EF3F1-066B-4FF5-A7BF-6AF9DE99158E} = {62976C02-9AC7-450D-8634-FB01F357F47B}
 		{3794E516-7909-4888-BB45-D7F69EE71399} = {62976C02-9AC7-450D-8634-FB01F357F47B}
 		{47B6C6EC-9627-45ED-9F27-8FCA7D572AFB} = {62976C02-9AC7-450D-8634-FB01F357F47B}
+		{F51B837A-7B7C-421C-B64F-77BA36ACD995} = {69F65B5A-AA9C-4D9B-8F70-0D0D33052D87}
+		{FAA1B4A0-44E0-4227-863C-66096F2A7B97} = {62976C02-9AC7-450D-8634-FB01F357F47B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C789C29-8A4E-4401-BD4C-19C58303E8B6}
